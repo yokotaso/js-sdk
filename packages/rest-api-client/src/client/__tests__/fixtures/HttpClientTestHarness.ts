@@ -1,5 +1,5 @@
 import os from "os";
-import { AxiosClient } from "../../../http/AxiosClient";
+import { FetchClient } from "../../../http/FetchClient";
 import { KintoneRequestConfigBuilder } from "../../../KintoneRequestConfigBuilder";
 import { KintoneResponseHandler } from "../../../KintoneResponseHandler";
 import { HttpTestServer } from "./HttpTestServer";
@@ -87,7 +87,7 @@ export const makeHttpTestClient = () => {
   const responseHandler = new KintoneResponseHandler({
     enableAbortSearchError: false,
   });
-  const httpClient = new AxiosClient({ responseHandler, requestConfigBuilder });
+  const httpClient = new FetchClient({ responseHandler, requestConfigBuilder });
   return { httpClient, httpServer };
 };
 
